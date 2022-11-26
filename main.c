@@ -129,11 +129,20 @@ int moogle_commands(char **args) {
   }
   return execute_command(args);
 }
+void moogle_init() {
 
+  printf("******** **    ** *****  ****   ****  **    **    ******  *********\n");
+  printf("******** **    ** ** ** **     **     **    **    **      *********\n");
+  printf("         ** ** ** ** ** ** *** ** *** **    **    ******           \n");
+  printf("******** **    ** ** ** **  ** **  ** **    **    **      *********\n");
+  printf("******** **    ** *****   ***    ***  ***** ***** ******  *********\n");
+  
+}
 int main() {
   char **command;
   char *input;
   int stat_loc;
+  moogle_init();
   while (stat_loc) {
     printf("Moogle>>"); // Greeting shell during startup
 
