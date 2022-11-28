@@ -10,7 +10,10 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
-char *moogle_args[] = {"tree", "list", "path", "exit"};
+char *moogle_args[] = {"tree", "list", "exit", "path"};
+
+char **history;
+int count = 0;
 
 char *read_line(void) {
   char *line = NULL;
@@ -74,9 +77,45 @@ int execute_command(char **command) {
   return 1;
 }
 
-int moogle_exit(char **args) {
-  // somethign here;
+int moogle_exit(char **args, int count) {
+  printf("Previously Executed Commands: \n");
 
+  int c = count;
+  if (c < 4) {
+    c = 0;
+  } else {
+    c -= 4;
+  }
+  for (int i = c; i < count; i++) {
+    printf("%d: %s\n", i + 1, args[i]); // Prints
+  }
+  // int pid = fork();
+  // if (pid < 0) { // Test For Fork Failed
+  //   fprintf(stderr, "Fork Failed");
+  //   exit(0);
+  // } else if (pid > 0) {
+  //   // Parent
+  //   wait(NULL);                                         // Wait For Child
+  //   printf("\nHit the Return Key to Exit the Shell\n"); // Print
+  //   getchar();
+  //   FILE *f = fopen("file.txt", "wb"); // Open or Create file.txt
+  //   for (int i = 0; i < count; i++) {  // From 0 to When Exit is Typed
+  //     fprintf(f, "%s\n",
+  //             args[i]); // Print Into file.txt of Each Command Written
+  //   }
+  //   fclose(f); // Close File
+  //   printf("You've Successfully Exited, Check 'file.txt' For Command History:
+  //   "
+  //          "\n\n");
+  // } else if (pid == 0) {
+  //   // Child
+  //   char *myargs[3];                 // Define Arg (ls -l)
+  //   myargs[0] = "ls";                // Perform ls
+  //   myargs[1] = "-l";                // Perform -l
+  //   myargs[2] = NULL;                // Marks End of Array
+  //   execvp(myargs[0], myargs);       // Execute ls -l
+  //   printf("This Shouldn't Run \n"); // In Case of Failure
+  // }
   return 0;
 }
 
@@ -87,11 +126,11 @@ int moogle_list(char **args) { return 0; }
 // code for tree
 int moogle_tree(char **args) { return 0; }
 
-int moogle_nofound(char **args) {
+// int moogle_nofound(char **args) {
 
-  printf("command not found..");
-  return 0;
-}
+//   printf("command not found..");
+//   return 0;
+// }
 
 int moogle_commands(char **args) {
 
@@ -120,10 +159,13 @@ int moogle_commands(char **args) {
         break;
       case 2:
         // code
-        moogle_path(args);
+
+        moogle_exit(args, count);
+        break;
 
       case 3:
-        moogle_exit(args);
+        // moogle_path(args);
+        break;
       }
     }
   }
@@ -131,23 +173,30 @@ int moogle_commands(char **args) {
 }
 void moogle_init() {
 
-  printf("******** **    ** *****  ****   ****  **    **    ******  *********\n");
-  printf("******** **    ** ** ** **     **     **    **    **      *********\n");
-  printf("         ** ** ** ** ** ** *** ** *** **    **    ******           \n");
-  printf("******** **    ** ** ** **  ** **  ** **    **    **      *********\n");
-  printf("******** **    ** *****   ***    ***  ***** ***** ******  *********\n");
-  
+  printf("******** **    ** *****  ****   ****  **    **    ******  "
+         "*********\n");
+  printf("******** **    ** ** ** **     **     **    **    **      "
+         "*********\n");
+  printf("         ** ** ** ** ** ** *** ** *** **    **    ******           "
+         "\n");
+  printf("******** **    ** ** ** **  ** **  ** **    **    **      "
+         "*********\n");
+  printf("******** **    ** *****   ***    ***  ***** ***** ******  "
+         "*********\n");
 }
 int main() {
   char **command;
   char *input;
   int stat_loc;
+  history = malloc(8 * sizeof(char *));
   moogle_init();
   while (stat_loc) {
     printf("Moogle>>"); // Greeting shell during startup
 
     input = read_line();
     command = Shell_input(input);
+    // copy the command used in the history
+    //  strcpy(history[count++], command);
 
     // //  deallocate the memory
     stat_loc = moogle_commands(command);
