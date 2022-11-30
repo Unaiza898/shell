@@ -143,7 +143,18 @@ int moogle_exit(char **args, int count) {
 
 int moogle_path(char **args) { return 0; }
 
-int moogle_list(char **args) { return 0; }
+int moogle_list(char **args) {
+  // clear screen
+  system("clear");
+  // list file
+  system("ls -l");
+  // output the list to t1.txt
+  system("ls -l . > t1.txt");
+  // rename it to tree
+  system("mv t1.txt tree.txt");
+
+  return 0;
+}
 
 // code for tree
 int moogle_tree(char **args) { return 0; }

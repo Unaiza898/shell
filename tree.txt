@@ -1,0 +1,8 @@
+total 88
+-rw-r--r-- 1 runner runner  2913 Nov 25 21:47 codecopied
+-rwxr-xr-x 1 runner runner 62816 Nov 30 02:19 main
+-rw-r--r-- 1 runner runner  5720 Nov 30 01:07 main.c
+-rw-r--r-- 1 runner runner   411 Oct 13 22:06 Makefile
+-rw-r--r-- 1 runner runner    81 Jan 18  2022 replit.nix
+-rw-r--r-- 1 runner runner     0 Nov 30 02:20 t1.txt
+-rw-r--r-- 1 runner runner   390 Nov 30 02:20 tree.txt
