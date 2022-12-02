@@ -1,0 +1,9 @@
+total 88
+drwxr-xr-x 1 runner runner    64 Dec  2 02:20 dir0
+-rw-r--r-- 1 runner runner     1 Dec  2 03:35 file.txt
+-rwxr-xr-x 1 runner runner 63168 Dec  2 03:42 main
+-rw-r--r-- 1 runner runner  6606 Dec  2 03:42 main.c
+-rw-r--r-- 1 runner runner   411 Oct 13 22:06 Makefile
+-rw-r--r-- 1 runner runner    81 Jan 18  2022 replit.nix
+-rw-r--r-- 1 runner runner     0 Dec  2 03:42 t1.txt
+-rw-r--r-- 1 runner runner   439 Dec  2 03:42 tree.txt

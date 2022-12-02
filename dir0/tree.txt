@@ -1,0 +1,7 @@
+total 8
+drwxr-xr-x 1 runner runner   0 Dec  2 02:09 dir1
+-rw-r--r-- 1 runner runner  16 Dec  2 02:09 file.txt
+-rw-r--r-- 1 runner runner   0 Dec  2 02:20 t1.txt
+-rw-r--r-- 1 runner runner   0 Dec  2 02:20 t2.txt
+-rw-r--r-- 1 runner runner   0 Dec  2 02:20 t3.txt
+-rw-r--r-- 1 runner runner 202 Dec  2 02:09 tree.txt
